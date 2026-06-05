@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velow Workshop — Réparation & Expertise Vélo | Calvados · Manche · Normandie</title>
+<meta name="description" content="Expert en réparation, entretien et montage vélo sur mesure. Intervention à domicile dans le Calvados, la Manche et toute la Normandie. Montage haut de gamme sur mesure dans toute la France.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --black: #0A0A0A;
+  --white: #F5F3EE;
+  --accent: #C8FF00;
+  --accent2: #FF4D1C;
+  --gray: #1A1A1A;
+  --gray2: #2A2A2A;
+  --gray3: #555;
+  --gray4: #888;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ───── NAV ───── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(10,10,10,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 26px; letter-spacing: 3px;
+  color: var(--white); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--gray4);
+  font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--black);
+  border: none; padding: 11px 26px;
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; transition: opacity 0.2s; text-decoration: none; display: inline-block;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ───── HERO ───── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 120px 48px 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(140deg, #0A0A0A 0%, #0f110a 50%, #111 100%);
+}
+.hero-grid {
+  position: absolute; inset: 0; opacity: 0.035;
+  background-image:
+    repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 1px, transparent 64px),
+    repeating-linear-gradient(90deg, #fff 0, #fff 1px, transparent 1px, transparent 64px);
+}
+.hero-accent-line {
+  position: absolute; top: 0; right: 180px; bottom: 0;
+  width: 1px; background: var(--accent); opacity: 0.2;
+}
+.hero-ghost {
+  position: absolute; right: 32px; bottom: 60px;
+  font-family: var(--font-display); font-size: 240px;
+  color: rgba(200,255,0,0.03); line-height: 1; user-select: none; pointer-events: none;
+}
+.hero-badge {
+  position: relative; display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,255,0,0.08); border: 1px solid rgba(200,255,0,0.25);
+  color: var(--accent); font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 8px 18px; margin-bottom: 28px; font-weight: 500;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.25} }
+.hero-title {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(60px, 8.5vw, 128px);
+  line-height: 0.92; margin-bottom: 32px; max-width: 960px;
+}
+.hero-title span { color: var(--accent); }
+.hero-sub {
+  position: relative; max-width: 540px;
+  color: var(--gray4); font-size: 16px; line-height: 1.75;
+  font-weight: 300; margin-bottom: 48px;
+}
+.hero-actions { position: relative; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: var(--black);
+  border: none; padding: 16px 44px;
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent; color: var(--white);
+  border: 1px solid rgba(255,255,255,0.22); padding: 16px 44px;
+  font-family: var(--font-body); font-weight: 400; font-size: 13px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--white); }
+.hero-stats {
+  position: relative; display: flex; gap: 56px; margin-top: 80px;
+  padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap;
+}
+.stat-num { font-family: var(--font-display); font-size: 48px; color: var(--accent); line-height: 1; }
+.stat-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray4); margin-top: 4px; }
+
+/* ───── GENERIC SECTION ───── */
+section { padding: 100px 48px; }
+.section-label {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); font-weight: 500; margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 72px); line-height: 0.95; margin-bottom: 20px;
+}
+.section-title span { color: var(--accent); }
+
+/* ───── SERVICES ───── */
+.services-intro {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  margin-bottom: 56px; align-items: end;
+}
+.services-desc { color: var(--gray4); font-size: 16px; line-height: 1.8; font-weight: 300; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.service-card {
+  background: var(--gray); padding: 40px 32px;
+  border-top: 2px solid transparent;
+  transition: all 0.3s; cursor: default; position: relative; overflow: hidden;
+}
+.service-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s;
+}
+.service-card:hover { background: var(--gray2); border-top-color: var(--accent); }
+.service-card:hover::after { transform: scaleX(1); }
+.service-icon {
+  width: 48px; height: 48px; border: 1px solid rgba(200,255,0,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 22px; margin-bottom: 28px;
+}
+.service-num {
+  font-family: var(--font-display); font-size: 64px;
+  color: rgba(200,255,0,0.05); position: absolute; bottom: 16px; right: 24px;
+  line-height: 1; user-select: none; pointer-events: none;
+}
+.service-name { font-family: var(--font-display); font-size: 28px; margin-bottom: 12px; line-height: 1.1; }
+.service-desc { color: var(--gray4); font-size: 14px; line-height: 1.75; font-weight: 300; }
+.service-tag {
+  display: inline-block; margin-top: 20px;
+  background: rgba(200,255,0,0.08); color: var(--accent);
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; font-weight: 500;
+}
+
+/* ───── PACKS ───── */
+.packs { background: var(--gray); }
+.packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.pack-card {
+  background: var(--black); padding: 40px 32px;
+  border: 1px solid rgba(255,255,255,0.06); position: relative; transition: border-color 0.3s;
+}
+.pack-card:hover { border-color: rgba(200,255,0,0.25); }
+.pack-card.featured { border-color: var(--accent); }
+.pack-badge {
+  position: absolute; top: -13px; left: 32px;
+  background: var(--accent); color: var(--black);
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; font-weight: 500;
+}
+.pack-name { font-family: var(--font-display); font-size: 34px; margin-bottom: 8px; }
+.pack-name span { color: var(--accent); }
+.pack-price { font-family: var(--font-display); font-size: 56px; line-height: 1; margin-bottom: 4px; }
+.pack-price sup { font-size: 24px; }
+.pack-period { color: var(--gray4); font-size: 13px; margin-bottom: 32px; }
+.pack-divider { height: 1px; background: rgba(255,255,255,0.07); margin-bottom: 28px; }
+.pack-feature {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--gray4); margin-bottom: 12px; line-height: 1.55;
+}
+.pack-feature i { color: var(--accent); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+.pack-cta {
+  width: 100%; margin-top: 32px; padding: 14px;
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+}
+.pack-cta-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+.pack-cta-ghost:hover { border-color: var(--white); }
+.pack-cta-solid { background: var(--accent); color: var(--black); border: none; }
+.pack-cta-solid:hover { opacity: 0.88; }
+
+/* ───── CUSTOM BUILD ───── */
+.custom-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.custom-visual {
+  background: var(--gray); aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.custom-visual-bg {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 48px, rgba(200,255,0,0.02) 48px, rgba(200,255,0,0.02) 49px);
+}
+.custom-visual-icon { font-size: 100px; color: rgba(200,255,0,0.14); position: relative; }
+.custom-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.custom-tag {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  color: var(--gray4); font-size: 12px; padding: 6px 14px; letter-spacing: 1px; text-transform: uppercase;
+}
+.custom-steps { margin-top: 40px; }
+.custom-step { display: flex; gap: 20px; margin-bottom: 28px; align-items: flex-start; }
+.custom-step-num {
+  font-family: var(--font-display); font-size: 42px; color: rgba(200,255,0,0.18);
+  line-height: 1; flex-shrink: 0; width: 48px;
+}
+.custom-step-text h4 { font-family: var(--font-display); font-size: 20px; margin-bottom: 4px; }
+.custom-step-text p { color: var(--gray4); font-size: 14px; line-height: 1.65; }
+.brands-row { display: flex; gap: 2px; margin-top: 2px; }
+.brand-box {
+  flex: 1; background: var(--gray); padding: 20px; text-align: center;
+}
+.brand-name { font-family: var(--font-display); font-size: 32px; color: var(--accent); }
+.brand-sub { color: var(--gray4); font-size: 11px; letter-spacing: 1px; margin-top: 2px; }
+
+/* ───── OCCASIONS ───── */
+.occasions { background: var(--gray); }
+.occasions-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+.occasions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.velo-card {
+  background: var(--black); padding: 28px 24px;
+  border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s; cursor: pointer;
+}
+.velo-card:hover { background: var(--gray2); border-color: rgba(200,255,0,0.2); transform: translateY(-2px); }
+.velo-visual {
+  height: 140px; background: var(--gray2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 56px; color: rgba(200,255,0,0.28); margin-bottom: 20px;
+}
+.velo-type { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; font-weight: 500; }
+.velo-name { font-family: var(--font-display); font-size: 22px; margin-bottom: 6px; }
+.velo-brand { color: var(--gray4); font-size: 13px; margin-bottom: 16px; }
+.velo-price { font-family: var(--font-display); font-size: 32px; margin-bottom: 12px; }
+.velo-price span { font-size: 16px; }
+.velo-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.velo-tag { background: rgba(255,255,255,0.05); color: var(--gray4); font-size: 11px; padding: 3px 8px; }
+.velo-new { background: rgba(200,255,0,0.1); color: var(--accent); }
+.velo-add {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  cursor: pointer; border: 1px dashed rgba(200,255,0,0.18); background: var(--black);
+}
+
+/* ───── ZONES ───── */
+.zones-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.zones-map {
+  background: var(--gray); height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.map-grid {
+  position: absolute; inset: 0; opacity: 0.12;
+  background-image:
+    repeating-linear-gradient(0deg, var(--accent) 0, var(--accent) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, var(--accent) 0, var(--accent) 1px, transparent 1px, transparent 40px);
+}
+.map-pin { font-size: 52px; color: var(--accent); position: relative; z-index: 1; }
+.map-label {
+  position: absolute; bottom: 20px; left: 24px;
+  font-family: var(--font-display); font-size: 72px;
+  color: rgba(200,255,0,0.05); line-height: 1; user-select: none;
+}
+.zone-item {
+  padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.zone-item:last-child { border-bottom: none; }
+.zone-name { font-family: var(--font-display); font-size: 24px; }
+.zone-detail { color: var(--gray4); font-size: 13px; margin-top: 4px; }
+.zone-badge {
+  background: rgba(200,255,0,0.1); color: var(--accent);
+  font-size: 11px; padding: 6px 14px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; white-space: nowrap;
+}
+
+/* ───── CONTACT FORM ───── */
+.contact-section { background: var(--gray); }
+.contact-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+.contact-info-block { padding-top: 8px; }
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 16px;
+  margin-bottom: 32px;
+}
+.contact-detail-icon {
+  width: 44px; height: 44px; border: 1px solid rgba(200,255,0,0.2); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 20px;
+}
+.contact-detail-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray4); margin-bottom: 4px; }
+.contact-detail-val { font-size: 16px; font-weight: 400; }
+.contact-detail-val a { color: var(--white); text-decoration: none; }
+.contact-detail-val a:hover { color: var(--accent); }
+.hours-grid { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.07); }
+.hours-title { font-family: var(--font-display); font-size: 22px; margin-bottom: 16px; color: var(--gray4); }
+.hours-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--gray4); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.hours-row span:last-child { color: var(--white); }
+
+/* FORM */
+.form-card {
+  background: var(--black); border: 1px solid rgba(255,255,255,0.07);
+  padding: 48px 40px;
+}
+.form-title { font-family: var(--font-display); font-size: 36px; margin-bottom: 8px; }
+.form-sub { color: var(--gray4); font-size: 14px; margin-bottom: 36px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gray4); margin-bottom: 8px; font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; background: var(--gray); border: 1px solid rgba(255,255,255,0.08);
+  color: var(--white); padding: 14px 16px; font-family: var(--font-body); font-size: 14px;
+  outline: none; transition: border-color 0.2s; appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: rgba(200,255,0,0.5); }
+.form-group select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+.form-group textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.form-check { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 28px; }
+.form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--accent); cursor: pointer; }
+.form-check label { font-size: 13px; color: var(--gray4); line-height: 1.6; cursor: pointer; }
+.form-submit {
+  width: 100%; background: var(--accent); color: var(--black);
+  border: none; padding: 18px; font-family: var(--font-body); font-weight: 500;
+  font-size: 14px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+}
+.form-submit:hover { opacity: 0.88; }
+.form-submit:active { transform: scale(0.99); }
+.form-success {
+  display: none; text-align: center; padding: 48px 24px;
+}
+.form-success-icon { font-size: 56px; color: var(--accent); margin-bottom: 20px; }
+.form-success h3 { font-family: var(--font-display); font-size: 36px; margin-bottom: 12px; }
+.form-success p { color: var(--gray4); font-size: 15px; }
+
+/* ───── FOOTER ───── */
+footer {
+  background: var(--black); padding: 56px 48px 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; gap: 40px; flex-wrap: wrap; }
+.footer-logo { font-family: var(--font-display); font-size: 30px; letter-spacing: 3px; }
+.footer-logo span { color: var(--accent); }
+.footer-tagline { color: var(--gray4); font-size: 13px; margin-top: 10px; max-width: 280px; line-height: 1.7; }
+.footer-links { display: grid; grid-template-columns: repeat(3, 140px); gap: 40px; }
+.footer-col h4 {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px; font-weight: 500;
+}
+.footer-col a {
+  display: block; color: var(--gray4); text-decoration: none;
+  font-size: 14px; margin-bottom: 10px; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { color: var(--gray4); font-size: 13px; }
+.footer-socials { display: flex; gap: 12px; }
+.social-link {
+  width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray4); font-size: 17px; text-decoration: none; transition: all 0.2s;
+}
+.social-link:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ───── CTA BAND ───── */
+.cta-band {
+  background: var(--accent); color: var(--black); padding: 80px 48px;
+  display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;
+}
+.cta-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 72px); line-height: 0.95; }
+.cta-sub { color: rgba(0,0,0,0.5); font-size: 15px; margin-top: 12px; max-width: 400px; font-weight: 300; }
+.btn-dark {
+  background: var(--black); color: var(--accent); border: none;
+  padding: 16px 44px; font-family: var(--font-body); font-weight: 500;
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: opacity 0.2s; text-decoration: none; display: inline-block; white-space: nowrap;
+}
+.btn-dark:hover { opacity: 0.82; }
+
+/* ───── HAMBURGER MENU ───── */
+.nav-hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 40px; height: 40px; cursor: pointer; background: none; border: none; padding: 4px;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--white);
+  transition: all 0.3s; transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 65px; left: 0; right: 0; z-index: 99;
+  background: rgba(10,10,10,0.98); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 24px 20px 32px; flex-direction: column; gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  display: block; color: var(--gray4); text-decoration: none;
+  font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500;
+  padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--accent); }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu .mobile-cta {
+  margin-top: 20px; background: var(--accent); color: var(--black);
+  text-align: center; padding: 16px; font-weight: 500; border-bottom: none;
+  letter-spacing: 1.5px;
+}
+
+/* ───── RESPONSIVE — TABLETTE ───── */
+@media (max-width: 900px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  section { padding: 72px 20px; }
+  .hero { padding: 100px 20px 64px; }
+  .services-intro { grid-template-columns: 1fr; gap: 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .packs-grid { grid-template-columns: 1fr; }
+  .custom-inner { grid-template-columns: 1fr; }
+  .occasions-grid { grid-template-columns: 1fr 1fr; }
+  .zones-inner { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; }
+  .footer-links { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .cta-band { flex-direction: column; align-items: flex-start; padding: 56px 20px; }
+  .hero-stats { gap: 28px; }
+}
+
+/* ───── RESPONSIVE — MOBILE ───── */
+@media (max-width: 480px) {
+  /* Nav */
+  nav { padding: 14px 16px; }
+  .nav-logo { font-size: 20px; letter-spacing: 2px; }
+  .nav-cta { padding: 9px 16px; font-size: 11px; letter-spacing: 0.5px; }
+
+  /* Hero */
+  .hero { padding: 90px 16px 56px; min-height: 100svh; }
+  .hero-ghost { display: none; }
+  .hero-accent-line { display: none; }
+  .hero-badge { font-size: 10px; padding: 6px 12px; margin-bottom: 20px; }
+  .hero-title { font-size: clamp(48px, 13vw, 72px); margin-bottom: 20px; }
+  .hero-sub { font-size: 14px; margin-bottom: 32px; }
+  .hero-actions { gap: 12px; }
+  .btn-primary, .btn-ghost { padding: 14px 28px; font-size: 12px; width: 100%; text-align: center; }
+  .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 20px; margin-top: 48px; padding-top: 28px; }
+  .hero-stats > div { flex: 1 1 40%; }
+  .stat-num { font-size: 36px; }
+  .stat-label { font-size: 10px; }
+
+  /* Sections */
+  section { padding: 56px 16px; }
+  .section-title { font-size: clamp(34px, 9vw, 52px); }
+
+  /* Services */
+  .service-card { padding: 28px 20px; }
+  .service-name { font-size: 22px; }
+
+  /* Packs */
+  .pack-card { padding: 28px 20px; }
+  .pack-price { font-size: 44px; }
+  .pack-name { font-size: 26px; }
+
+  /* Occasions */
+  .occasions-grid { grid-template-columns: 1fr; }
+  .occasions-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .occasions-header .btn-ghost { padding: 10px 20px; font-size: 12px; }
+
+  /* Custom build */
+  .custom-visual { aspect-ratio: 3/2; }
+  .custom-visual img { width: 100% !important; height: auto !important; max-height: 240px; object-fit: cover; }
+  .brands-row { flex-wrap: wrap; }
+  .brand-box { flex: 1 1 45%; }
+  .brand-name { font-size: 22px; }
+
+  /* Zones */
+  .zones-inner img { width: 100% !important; height: auto !important; }
+  .zone-name { font-size: 18px; }
+
+  /* Contact */
+  .form-card { padding: 28px 16px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-title { font-size: 28px; }
+  .contact-info-block { padding-top: 0; }
+
+  /* CTA band */
+  .cta-band { padding: 48px 16px; }
+  .cta-band .btn-dark { width: 100%; text-align: center; padding: 15px; }
+  .cta-band > div:last-child { width: 100%; }
+
+  /* Footer */
+  footer { padding: 48px 16px 24px; }
+  .footer-links { grid-template-columns: 1fr; gap: 28px; }
+  .footer-logo { font-size: 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+.velo-card {
+    text-decoration: none; /* enlève le soulignement */
+    color: inherit;        /* garde la couleur normale du texte */
+    display: block;        /* pour que toute la carte soit cliquable */
+}
+
+.velo-card:hover,
+.velo-card:visited,
+.velo-card:active {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <a href="#top" class="nav-logo">VELOW <span>WORKSHOP</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#packs">Packs SAV</a></li>
+    <li><a href="#custom">Sur mesure</a></li>
+    <li><a href="#occasions">Occasions</a></li>
+    <li><a href="#zones">Zones</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Prendre RDV</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Navigation mobile">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#packs" class="mobile-link">Packs SAV</a>
+  <a href="#custom" class="mobile-link">Sur mesure</a>
+  <a href="#occasions" class="mobile-link">Occasions</a>
+  <a href="#zones" class="mobile-link">Zones</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#contact" class="mobile-cta">Prendre RDV →</a>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-accent-line"></div>
+  <div class="hero-ghost">VW</div>
+
+  <div class="hero-badge">
+    <i class="ti ti-map-pin" aria-hidden="true"></i>
+    Calvados · Manche · Normandie
+  </div>
+
+  <h1 class="hero-title">
+    VOTRE VÉLO<br>
+    MÉRITE<br>
+    <span>L'EXCELLENCE</span>
+  </h1>
+
+  <p class="hero-sub">
+    Mécanicien expert à domicile. Réparation, entretien et montage sur mesure haut de gamme — route, VTT, gravel, VAE. Nous venons chez vous dans le Calvados, la Manche et toute la Normandie (sur demande).
+  </p>
+
+  <div class="hero-actions">
+    <a href="#packs" class="btn-primary">Voir les packs SAV</a>
+    <a href="#services" class="btn-ghost">Découvrir nos services</a>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Vélos réparés</div>
+    </div>
+    <div>
+      <div class="stat-num">24-48h</div>
+      <div class="stat-label">Délai d'intervention</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Satisfaction client</div>
+    </div>
+    <div>
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section id="services" style="background: var(--black);">
+  <div class="services-intro">
+    <div>
+      <p class="section-label">Nos expertises</p>
+      <h2 class="section-title">TOUT CE DONT<br>VOTRE VÉLO<br><span>A BESOIN</span></h2>
+    </div>
+    <p class="services-desc">
+      Du simple réglage à la révision complète, nous intervenons sur tous types de vélos. Mécaniciens passionnés et certifiés, nous nous déplaçons à votre domicile en Normandie ou vous accueillons dans notre atelier. Pour le montage sur mesure, nous opérons dans toute la France.
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-home-check" aria-hidden="true"></i></div>
+      <div class="service-num">01</div>
+      <div class="service-name">SAV À DOMICILE</div>
+      <p class="service-desc">Entretien, réglage et réparation directement chez vous. Zéro déplacement de votre part. Nous arrivons équipés pour tout type d'intervention.</p>
+      <span class="service-tag">Service phare</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+      <div class="service-num">02</div>
+      <div class="service-name">ATELIER FIXE-SERVICE A VENIR</div>
+      <p class="service-desc">Atelier en cours de conception</p>
+      <span class="service-tag">Sur rendez-vous</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-settings-2" aria-hidden="true"></i></div>
+      <div class="service-num">03</div>
+      <div class="service-name">MONTAGE SUR MESURE</div>
+      <p class="service-desc">Assemblage de vélos haut de gamme à la carte selon votre utilisation et votre morphologie. Route, gravel, XC, enduro, VAE — toute la France.</p>
+      <span class="service-tag">Toute la France</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-refresh" aria-hidden="true"></i></div>
+      <div class="service-num">04</div>
+      <div class="service-name">TRANSMISSION</div>
+      <p class="service-desc">Remplacement complet ou partiel de groupes, câbles, gaines, chaînes et cassettes. Shimano, SRAM, Campagnolo — toutes marques maîtrisées.</p>
+      <span class="service-tag">Spécialité</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-search" aria-hidden="true"></i></div>
+      <div class="service-num">06</div>
+      <div class="service-name">RECHERCHE OCCASION</div>
+      <p class="service-desc">Nous dénichons votre vélo idéal sur le marché de l'occasion et effectuons un contrôle technique complet. Expertise pour acheter au juste prix.</p>
+      <span class="service-tag">Conseils inclus</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PACKS SAV ═══════════════ -->
+<section class="packs" id="packs">
+  <p class="section-label">Entretien à domicile</p>
+  <h2 class="section-title">NOS PACKS <span>SAV</span></h2>
+  <p style="color:var(--gray4);max-width:500px;font-size:15px;font-weight:300;margin-top:12px;line-height:1.75;">
+    Choisissez le niveau d'entretien adapté à votre pratique. Déplacement inclus dans le Calvados et la Manche.
+  </p>
+
+  <div class="packs-grid">
+
+    <!-- Pack Essentiel -->
+    <div class="pack-card">
+      <div class="pack-name">PACK <span>ESSENTIEL</span></div>
+      <!-- TARIF : modifiez le prix ci-dessous -->
+      <div class="pack-price"><sup>€</sup>49</div>
+      <div class="pack-period">à domicile · ~1h</div>
+      <div class="pack-divider"></div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Vérification générale du vélo</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Réglage des freins</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Réglage des dérailleurs</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Gonflage &amp; contrôle pneumatiques</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Lubrification chaîne</div>
+      <div class="pack-feature" style="color:var(--gray3)"><i class="ti ti-minus" aria-hidden="true" style="color:var(--gray3)"></i>Pièces non incluses</div>
+      <button class="pack-cta pack-cta-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserver</button>
+    </div>
+
+    <!-- Pack Performance (mis en avant) -->
+    <div class="pack-card featured">
+      <div class="pack-badge">Le plus populaire</div>
+      <div class="pack-name">PACK <span>ANNUEL</span></div>
+      <!-- TARIF : modifiez le prix ci-dessous -->
+      <div class="pack-price"><sup>€</sup>119</div>
+      <div class="pack-period">à domicile · ~2h30</div>
+      <div class="pack-divider"></div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Tout le pack Essentiel</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Nettoyage complet transmission (dégraissage/lubrification)</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Remplacement câbles &amp; gaines</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Installation des pièces incluses</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Pièces neuves fournis: chaine/2 paires de plaquettes-patins/cables et gaines</div>
+      <div class="pack-feature" style="color:var(--gray3)"><i class="ti ti-minus" aria-hidden="true" style="color:var(--gray3)"></i>VELOS COMPATIBLES: Vélos 6à10 vitesses, freinage disques ou patin VAE inclus---Vélos 11 et 12 vitesses sur devis</div>
+      <button class="pack-cta pack-cta-solid" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserver</button>
+    </div>
+
+    <!-- Pack Premium -->
+    <div class="pack-card">
+      <div class="pack-name">PACK <span>PREMIUM</span></div>
+      <!-- TARIF : modifiez le prix ci-dessous -->
+      <div class="pack-price"><sup>€</sup>159</div>
+      <div class="pack-period">à domicile · ~4h</div>
+      <div class="pack-divider"></div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Révision complète Annuel</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Installation des pièces incluses</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Purge de freins sram/shimano</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Réglage géométrie avec le client</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Pièces neuves fournis: chaine+cassette/2 paires de plaquettes-patins/cables et gaines</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Garantie 2 mois main-d'œuvre</div>
+      <div class="pack-feature" style="color:var(--gray3)"><i class="ti ti-minus" aria-hidden="true" style="color:var(--gray3)"></i>VELOS COMPATIBLES: Vélos 6à10 vitesses, freinage disques ou patin VAE inclus---Vélos 11 et 12 vitesses sur devis</div>
+      <button class="pack-cta pack-cta-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserver</button>
+    </div>
+
+    <!--Transmission & Passage de vitesses-->
+    <div class="pack-card">
+      <div class="pack-name">Réparation <span>Express</span></div>
+      <!-- TARIF : modifiez le prix ci-dessous -->
+      <div class="pack-price"><sup>€</sup>19</div>
+      <div class="pack-period">à domicile · 1 prestation au choix, pièce(s) incluse(s) si mentionnée(s)</div>
+      <div class="pack-divider"></div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Changement chambre à air- 1 chambre incluse</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Réglage Dérailleur ou freins</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Changement câble - Cable inox inclus</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Changement gaîne - gaine incluse</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Changement cassette</div>
+      <div class="pack-feature" style="color:var(--gray3)"><i class="ti ti-minus" aria-hidden="true" style="color:var(--gray3)"></i>Cette liste est non exhaustive. Pour les autres interventions, contactez moi pour un devis gratuit et personnalisé</div>
+      <button class="pack-cta pack-cta-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserver</button>
+    </div>
+
+    <!--Réglage freins-->
+    <div class="pack-card">
+      <div class="pack-name">réparation <span>technique</span></div>
+      <!-- TARIF : modifiez le prix ci-dessous -->
+      <div class="pack-price"><sup>€</sup>39</div>
+      <div class="pack-period">à domicile · 1 prestation au choix, pièce(s) incluse(s) si mentionnée(s)</div>
+      <div class="pack-divider"></div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Changement de chaine - Chainee 6 à 10v incluse (11/12v sur devis)</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Changement des plaquettes/patins - 2 Freins pièces incluses</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Purge hydraulique + plaquettes - 1 Frein pièces incluses</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Réglages dérailleur et freins</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Changement de câbles et gaines - 2 câbles + 2 gaines inclus</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Montage Tubless</div>
+      <div class="pack-feature" style="color:var(--gray3)"><i class="ti ti-minus" aria-hidden="true" style="color:var(--gray3)"></i>Cette liste est non exhaustive. Pour les autres interventions, contactez moi pour un devis gratuit et personnalisé</div>
+      <button class="pack-cta pack-cta-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserver</button>
+    </div>
+
+    <!--Réglage freins-->
+    <div class="pack-card">
+      <div class="pack-name">entretien <span>suspension</span></div>
+      <!-- TARIF : modifiez le prix ci-dessous -->
+      <div class="pack-price"><sup>€</sup>A partir de 75€</div>
+      <div class="pack-period">à domicile/livraison · La révision de votre fourche est un point crucial pour son bon fonctionnement et sa longévité.
+Pour la majorité des marques de fourches, un entretien complet est préconisé toutes les 50-100 H ou 1 fois / an.
+Délai de réalisation: 24 à 48 H à réception de la fourche.
+
+Une révision correspond à un nettoyage et un changement des huiles de laminage et de lubrification, et en option: du changement des joints racleurs.</div>
+      <div class="pack-divider"></div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Contrôle du fonctionnement de la fourche et des réglages</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Vidange de l’huile</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Nettoyage de la fourche et des cartouches</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Vérification des bagues de guidage</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Au choix: Remplacements des joints spi et joints mousses par modèle d’origine, par joints spis Low Friction SKF ou par joints adaptables Enduro Bearings</div>
+      <div class="pack-feature"><i class="ti ti-check" aria-hidden="true"></i>Remplissage avec huile préconisée</div>
+      <div class="pack-feature" style="color:var(--gray3)"><i class="ti ti-minus" aria-hidden="true" style="color:var(--gray3)"></i>Garantie de 2 mois sur les joints spis</div>
+      <button class="pack-cta pack-cta-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserver</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CUSTOM BUILD ═══════════════ -->
+<section id="custom" style="background:var(--black);">
+  <div class="custom-inner">
+    <div>
+      <p class="section-label">Expertise haut de gamme · Toute la France</p>
+      <h2 class="section-title">VOTRE VÉLO<br><span>DE RÊVE</span></h2>
+      <p style="color:var(--gray4);font-size:15px;line-height:1.8;font-weight:300;margin:20px 0 24px;">
+        Nous construisons des vélos uniques sur mesure selon votre morphologie, votre terrain et votre budget. Chaque composant est sélectionné avec vous. Livraison et mise en route dans toute la France.
+      </p>
+      <div class="custom-tags">
+        <span class="custom-tag">Route</span>
+        <span class="custom-tag">Gravel</span>
+        <span class="custom-tag">VTT XC</span>
+        <span class="custom-tag">Enduro</span>
+        <span class="custom-tag">Cyclocross</span>
+      </div>
+      <div class="custom-steps">
+        <div class="custom-step">
+          <div class="custom-step-num">01</div>
+          <div class="custom-step-text">
+            <h4>CONSULTATION</h4>
+            <p>Analyse de votre pratique, morphologie et budget. On définit ensemble votre vélo idéal.</p>
+          </div>
+        </div>
+        <div class="custom-step">
+          <div class="custom-step-num">02</div>
+          <div class="custom-step-text">
+            <h4>SÉLECTION</h4>
+            <p>Choix du cadre, groupe, roues et accessoires. Devis détaillé sans engagement.</p>
+          </div>
+        </div>
+        <div class="custom-step">
+          <div class="custom-step-num">03</div>
+          <div class="custom-step-text">
+            <h4>ASSEMBLAGE & LIVRAISON</h4>
+            <p>Montage professionnel en atelier et livraison dans toute la France avec prise en main complète.</p>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary" style="margin-top:20px;display:inline-block;">Demander un devis gratuit</a>
+    </div>
+    <div>
+      <div class="custom-visual">
+        <div class="custom-visual-bg"></div>
+        <img src="velovitrine.png" alt="Logo Shimano" class="brand-logo" style="width: 750px;; height:550px;">
+      </div>
+      <div class="brands-row">
+        <div class="brand-box">
+          <img src="shimano.png" alt="Logo Shimano" class="brand-logo" style="width:120px; height:auto;">
+          <div class="brand-name">Shimano</div>
+          <div class="brand-sub">Dura-Ace · Ultegra · 105 · GRX</div>
+        </div>
+        <div class="brand-box">
+          <img src="sram.png" alt="Logo Shimano" class="brand-logo" style="width:120px; height:auto;">
+          <div class="brand-name">SRAM</div>
+          <div class="brand-sub">Red · Force · Rival · Eagle</div>
+        </div>
+      </div>
+      <div class="brands-row" style="margin-top:2px;">
+        <div class="brand-box">
+          <img src="campagnolo.png" alt="Logo Shimano" class="brand-logo" style="width:120px; height:auto;">
+          <div class="brand-name">Campagnolo</div>
+          <div class="brand-sub">Super Record · Record</div>
+        </div>
+        <div class="brand-box">
+          <img src="wheeltop.png" alt="Logo Shimano" class="brand-logo" style="width:120px; height:auto;">
+          <div class="brand-name">Wheeltop</div>
+          <div class="brand-sub">EDS TX · EDS GEX · EDS OX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ OCCASIONS ═══════════════ -->
+<section class="occasions" id="occasions">
+  <div class="occasions-header">
+    <div>
+      <p class="section-label">Marché vélos vérifiés</p>
+      <h2 class="section-title">OCCASIONS <span>VÉRIFIÉES</span></h2>
+    </div>
+    <a href="#contact" class="btn-ghost" style="padding:12px 28px;font-size:13px;letter-spacing:1px;">Demander une alerte ↗</a>
+  </div>
+
+  <div class="occasions-grid">
+        <!-- ANNONCE 1 — Cannondale supersix -->
+    <a class="velo-card" href="https://www.leboncoin.fr/ad/velos/3205347612" target="_blank" rel="noopener">
+      <div class="velo-visual">
+      <img src="https://img.leboncoin.fr/api/v1/lbcpb1/images/a3/88/1a/a3881a70252385a481f44cdf11c325f833720767.jpg?rule=classified-1200x800-webp" alt="Cannondale supersix" onerror="this.style.display='none'" style="width: 240px;; height:170px;">
+      </div>
+      <div class="velo-card-body">
+        <div class="velo-type">route</div>
+        <div class="velo-name">Cannondale supersix</div>
+        <div class="velo-brand">supersix 2024</div>
+        <div class="velo-price">3790</div>
+        <div class="velo-tags">
+          <span class="velo-tag velo-new">Vérifié</span>
+          <span class="velo-tag">Taille M</span>
+        </div>
+      </div>
+    </a>
+        <!-- ANNONCE 2 — Colnago Y1RS -->
+    <a class="velo-card" href="https://www.leboncoin.fr/ad/velos/3200067135" target="_blank" rel="noopener">
+      <div class="velo-visual">
+      <img src="https://img.leboncoin.fr/api/v1/lbcpb1/images/c0/77/8c/c0778c179eccc11b05e09628d975957aa5b665aa.jpg?rule=ad-large" alt="Colnago Y1RS" onerror="this.style.display='none'" style="width: 240px;; height:170px;">
+      </div>
+      <div class="velo-card-body">
+        <div class="velo-type">Route</div>
+        <div class="velo-name">Colnago Y1RS</div>
+        <div class="velo-brand">Y1RS 2025</div>
+        <div class="velo-price">11500</div>
+        <div class="velo-tags">
+          <span class="velo-tag velo-new">Vérifié</span>
+          <span class="velo-tag">Taille XS</span>
+          <span class="velo-tag">Ultegra Di2 12v</span>
+        </div>
+      </div>
+    </a>
+</section>
+
+<!-- ═══════════════ ZONES ═══════════════ -->
+<section id="zones" style="background:var(--black);">
+  <div class="zones-inner">
+    
+      <img src="zoneintervention.png" alt="Zone d'intervention" style="width: 670px;;; height:auto;">
+    
+    <div>
+      <p class="section-label">Zones d'intervention</p>
+      <h2 class="section-title">ON VIENT<br>CHEZ <span>VOUS</span></h2>
+      <p style="color:var(--gray4);font-size:15px;font-weight:300;margin:16px 0 40px;line-height:1.8;">
+        Intervention à domicile dans le Calvados et la Manche. Sur demande dans toute la Normandie. Pour le montage sur mesure, nous opérons dans toute la France.
+      </p>
+      <div>
+        <div class="zone-item">
+          <div>
+            <div class="zone-name">CALVADOS</div>
+            <div class="zone-detail">Vire,Benny bocage,Noues de sienne,Ger,Flers</div>
+          </div>
+          <span class="zone-badge">24–48h</span>
+        </div>
+        <div class="zone-item">
+          <div>
+            <div class="zone-name">MANCHE</div>
+            <div class="zone-detail">Saint-Lô, Granville, Avranches,Coutance…</div>
+          </div>
+          <span class="zone-badge">24–48h</span>
+        </div>
+        <div class="zone-item">
+          <div>
+            <div class="zone-name">NORMANDIE</div>
+            <div class="zone-detail">Eure, Seine-Maritime — sur demande</div>
+          </div>
+          <span class="zone-badge">Sur devis</span>
+        </div>
+        <div class="zone-item">
+          <div>
+            <div class="zone-name">TOUTE LA FRANCE</div>
+            <div class="zone-detail">Montage sur mesure et entretient suspension uniquement</div>
+          </div>
+          <span class="zone-badge">Sur demande</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FORMULAIRE DE CONTACT ═══════════════ -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+
+    <!-- Infos à gauche -->
+    <div class="contact-info-block">
+      <p class="section-label">Nous contacter</p>
+      <h2 class="section-title">PRENONS<br><span>RENDEZ-VOUS</span></h2>
+      <p style="color:var(--gray4);font-size:15px;font-weight:300;margin:16px 0 40px;line-height:1.8;">
+        Décrivez-nous votre besoin, on revient vers vous rapidement pour fixer un créneau.
+      </p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon"><i class="ti ti-phone" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-detail-label">Téléphone</div>
+          <!-- MODIFIEZ votre numéro ici -->
+          <div class="contact-detail-val"><a href="tel:+33600000000">06 27 89 23 27</a></div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-detail-label">E-mail</div>
+          <!-- MODIFIEZ votre adresse e-mail ici -->
+          <div class="contact-detail-val"><a href="mail:velowworckshop@gmail.com">velowworkshop@gmail.com</a></div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-detail-label">Zone principale</div>
+          <div class="contact-detail-val">Calvados · Manche · Normandie</div>
+        </div>
+      </div>
+
+      <div class="hours-grid">
+        <div class="hours-title">HORAIRES</div>
+        <div class="hours-row"><span>Lundi – Jeudi</span><span>18h – 22h</span></div>
+        <div class="hours-row"><span>Vendredi</span><span>7h-22h</span></div>
+        <div class="hours-row"><span>Samedi</span><span>18h – 22h</span></div>
+        <div class="hours-row"><span>Dimanche</span><span>7h-22h</span></div>
+      </div>
+    </div>
+
+    <!-- Formulaire à droite -->
+    <div class="form-card">
+      <div id="formContent">
+        <div class="form-title">VOTRE DEMANDE</div>
+        <p class="form-sub">Tous les champs marqués * sont obligatoires.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Prénom *</label>
+            <input type="text" id="fname" placeholder="Jean" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Nom *</label>
+            <input type="text" id="lname" placeholder="Dupont" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" placeholder="velowworkshop@gmail.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" placeholder="06 27 89 23 27">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ville">Ville / Commune *</label>
+          <input type="text" id="ville" placeholder="Caen, Cherbourg, Saint-Lô…" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Type de service *</label>
+          <select id="service" required>
+            <option value="" disabled selected>Sélectionnez un service</option>
+            <option value="pack-essentiel">Pack Essentiel (49€)</option>
+            <option value="pack-performance">Pack Annuel (119€)</option>
+            <option value="pack-premium">Pack Premium (159€)</option>
+            <option value="réparation-technique">Réparation technique (39€)</option>
+            <option value="réparation-express">Réparation express (19€)</option>
+            <option value="entretient-suspension">Entretient suspension (à partir de 75€)</option>
+            <option value="atelier">Recherche vélo d'occasion</option>
+            <option value="autre">Autre demande</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="velo">Votre vélo (marque, modèle, année)</label>
+          <input type="text" id="velo" placeholder="Ex : Trek Émonda SL6 2021 — Shimano Ultegra">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Décrivez votre besoin *</label>
+          <textarea id="message" placeholder="Décrivez le problème ou le projet : symptômes, historique, attentes… Plus vous êtes précis, mieux on peut préparer notre intervention." required></textarea>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="rgpd" required>
+          <label for="rgpd">J'accepte que mes données soient utilisées pour traiter ma demande. Elles ne seront jamais partagées à des tiers. *</label>
+        </div>
+
+        <button class="form-submit" onclick="submitForm()">Envoyer ma demande →</button>
+        <p id="formError" style="color:#ff6b6b;font-size:13px;margin-top:12px;display:none;">Merci de remplir tous les champs obligatoires.</p>
+      </div>
+
+      <!-- Message de confirmation -->
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+        <h3>DEMANDE ENVOYÉE !</h3>
+        <p>Merci, nous reviendrons vers vous dans les plus brefs délais — généralement sous 2h en semaine.</p>
+        <p style="margin-top:16px;">En attendant, n'hésitez pas à nous appeler directement.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CTA BAND ═══════════════ -->
+<div class="cta-band">
+  <div>
+    <div class="cta-title">VOTRE VÉLO<br>VOUS ATTEND</div>
+    <p class="cta-sub">Un pneu crevé, un dérailleur déréglé, un projet de build ? On s'occupe de tout.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+    <!-- MODIFIEZ votre numéro ici -->
+    <a href="tel:+33600000000" class="btn-dark">Appeler directement</a>
+    <a href="#contact" class="btn-dark">Formulaire de contact</a>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">VELOW <span>WORKSHOP</span></div>
+      <p class="footer-tagline">Expert en réparation &amp; montage vélo à domicile. Calvados · Manche · Normandie · France entière (sur mesure).</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#packs">Packs SAV</a>
+        <a href="#custom">Montage sur mesure</a>
+        <a href="#occasions">Vélos occasion</a>
+        <a href="#services">Atelier fixe</a>
+      </div>
+      <div class="footer-col">
+        <h4>Spécialités</h4>
+        <a href="#services">Route &amp; Gravel</a>
+        <a href="#services">VTT XC &amp; Enduro</a>
+        <a href="#services">VAE &amp; Électrique</a>
+        <a href="#services">Transmission</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="#zones">Zones d'intervention</a>
+        <a href="#contact">Nous contacter</a>
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Velow Workshop — Tous droits réservés</div>
+    <div class="footer-socials">
+      <a href="#" class="social-link" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+      <a href="#" class="social-link" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+      <a href="#" class="social-link" aria-label="Strava"><i class="ti ti-brand-strava" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── Hamburger menu ───
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+// Ferme le menu au clic sur un lien
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
+  });
+});
+
+function submitForm() {
+  var fname   = document.getElementById('fname').value.trim();
+  var lname   = document.getElementById('lname').value.trim();
+  var email   = document.getElementById('email').value.trim();
+  var ville   = document.getElementById('ville').value.trim();
+  var service = document.getElementById('service').value;
+  var message = document.getElementById('message').value.trim();
+  var rgpd    = document.getElementById('rgpd').checked;
+  var errEl   = document.getElementById('formError');
+
+  if (!fname || !lname || !email || !ville || !service || !message || !rgpd) {
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+
+  fetch('https://formspree.io/f/mpqnbowj', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: fname+' '+lname, email, ville, service, message })
+  });
+
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+<!-- ═══════════════ BANDEAU DISPONIBILITÉ ═══════════════ -->
+<div id="availBanner" style="
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: var(--accent); color: var(--black);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 48px; gap: 16px; flex-wrap: wrap;
+  box-shadow: 0 -4px 24px rgba(200,255,0,0.18);
+">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <span style="font-size:18px;">🛠️</span>
+    <div>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;">
+        DISPONIBLE À PARTIR DU 24 JUIN
+      </span>
+      <span style="font-size:13px;margin-left:12px;opacity:0.7;">— N'attendez pas pour prendre rendez-vous !</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="#contact" onclick="document.getElementById('availBanner').style.display='none'"
+      style="background:var(--black);color:var(--accent);padding:9px 22px;font-size:12px;
+      letter-spacing:1.5px;text-transform:uppercase;font-weight:500;text-decoration:none;white-space:nowrap;">
+      Prendre RDV →
+    </a>
+    <button onclick="document.getElementById('availBanner').style.display='none'"
+      style="background:none;border:none;cursor:pointer;font-size:20px;color:var(--black);opacity:0.5;line-height:1;padding:0 4px;"
+      aria-label="Fermer">✕</button>
+  </div>
+</div>
+<style>
+@media(max-width:480px){
+  #availBanner { padding: 12px 16px; }
+  #availBanner span[style*="18px"] { font-size: 15px !important; }
+}
+</style>
+
+</body>
+</html>
